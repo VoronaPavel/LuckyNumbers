@@ -5,9 +5,7 @@ object LuckyScala extends LuckyTicket {
     sumOfDigits(left) == sumOfDigits(right)
   }
 
-  def countLucky(min: Long, max: Long) = {
-    countLucky(min.toString, max.toString)
-  }
+  def countLucky(min: Long, max: Long) = countLucky(min.toString, max.toString)
 
   def countLucky(min: String, max: String) = {
     Range.BigInt.inclusive(BigInt(min), BigInt(max), 1).count(element => isLucky(element.toString()))
