@@ -4,12 +4,6 @@ import static java.lang.Integer.parseInt;
 
 public class LuckyTicketUnoptimized implements LuckyTicket {
 
-    /**
-     *   Проверяет, является ли заданный номер билета счастливым.
-     *   Примеры:
-     *   isLucky("123600") = true
-     *   isLucky("123456") = false
-     */
     @Override public boolean isLucky(String ticketNumber) {
         int length = ticketNumber.length();
         String firstHalf = ticketNumber.substring(0, length / 2);
@@ -30,13 +24,6 @@ public class LuckyTicketUnoptimized implements LuckyTicket {
         return LongStream.rangeClosed(min, max).filter(this::isLucky).count();
     }
 
-    /**
-     * Рассчитывает количество различных счастливых билетов с номером в заданном диапазоне,
-     * включая границы.
-     * Длина номера билета 12 цифр.
-     * Пример:
-     * countLucky(123456123456L, 123456123465L) = 2
-     */
     private boolean isLucky(long ticketNumber) {
         return isLucky(String.valueOf(ticketNumber));
     }
@@ -45,7 +32,6 @@ public class LuckyTicketUnoptimized implements LuckyTicket {
         throw new UnsupportedOperationException("Not implemented yet.");
     }
 
-    // consider using string builder
     private static String trimLeadingZeros(String original) {
         char c = original.charAt(0);
         while (c == '0') {
