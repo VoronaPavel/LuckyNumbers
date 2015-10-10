@@ -6,7 +6,7 @@ object LuckyScala extends LuckyTicket {
   }
 
   def countLucky(min: Long, max: Long) = {
-    Range.Long.inclusive(min, max, 1).count(element => isLucky(element.toString))
+    countLucky(min.toString, max.toString)
   }
 
   def countLucky(min: String, max: String) = {
