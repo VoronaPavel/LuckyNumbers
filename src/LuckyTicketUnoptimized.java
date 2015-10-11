@@ -2,7 +2,7 @@ import java.util.stream.LongStream;
 
 import static java.lang.Integer.parseInt;
 
-public class LuckyTicketUnoptimized {
+public class LuckyTicketUnoptimized implements LuckyTicket {
 
     public boolean isLucky(String ticketNumber) {
         int length = ticketNumber.length();
