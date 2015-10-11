@@ -2,9 +2,9 @@ import java.util.stream.LongStream;
 
 import static java.lang.Integer.parseInt;
 
-public class LuckyTicketUnoptimized implements LuckyTicket {
+public class LuckyTicketUnoptimized {
 
-    @Override public boolean isLucky(String ticketNumber) {
+    public boolean isLucky(String ticketNumber) {
         int length = ticketNumber.length();
         String firstHalf = ticketNumber.substring(0, length / 2);
         String secondHalf = ticketNumber.substring(length / 2);
@@ -20,7 +20,7 @@ public class LuckyTicketUnoptimized implements LuckyTicket {
         return sum;
     }
 
-    @Override public long countLucky(long min, long max) {
+    public long countLucky(long min, long max) {
         return LongStream.rangeClosed(min, max).filter(this::isLucky).count();
     }
 
@@ -28,7 +28,7 @@ public class LuckyTicketUnoptimized implements LuckyTicket {
         return isLucky(String.valueOf(ticketNumber));
     }
 
-    @Override public long countLucky(String min, String max) {
+    public long countLucky(String min, String max) {
         throw new UnsupportedOperationException("Not implemented yet.");
     }
 
