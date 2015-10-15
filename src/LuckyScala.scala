@@ -1,8 +1,8 @@
 object LuckyScala extends LuckyTicket {
 
   def isLucky(number: String) = {
-    val sumOfDigits = (number: String) => number map(_ asDigit) sum
-    val (left, right) = number splitAt(number.length / 2)
+    val sumOfDigits = (number: String) => number map (_ asDigit) sum
+    val (left, right) = number splitAt number.length / 2
     sumOfDigits(left) == sumOfDigits(right)
   }
 
