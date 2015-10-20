@@ -1,10 +1,11 @@
+import java.math.BigInteger;
 import java.util.stream.LongStream;
 
 import static java.lang.Integer.parseInt;
 
-public class LuckyTicketUnoptimized implements LuckyTicket {
+public class LuckyTicketUnoptimized {
 
-    public boolean isLucky(String ticketNumber) {
+    public static boolean isLucky(String ticketNumber) {
         int length = ticketNumber.length();
         String firstHalf = ticketNumber.substring(0, length / 2);
         String secondHalf = ticketNumber.substring(length / 2);
@@ -20,24 +21,22 @@ public class LuckyTicketUnoptimized implements LuckyTicket {
         return sum;
     }
 
-    public long countLucky(long min, long max) {
-        return LongStream.rangeClosed(min, max).filter(this::isLucky).count();
+    public static long countLucky(long min, long max) {
+        return LongStream.rangeClosed(min, max).filter(LuckyTicketUnoptimized::isLucky).count();
     }
 
-    private boolean isLucky(long ticketNumber) {
+    private static boolean isLucky(long ticketNumber) {
         return isLucky(String.valueOf(ticketNumber));
     }
 
-    public long countLucky(String min, String max) {
-        throw new UnsupportedOperationException("Not implemented yet.");
-    }
-
-    private static String trimLeadingZeros(String original) {
-        char c = original.charAt(0);
-        while (c == '0') {
-            original = original.substring(1);
-            c = original.charAt(0);
+    public static long countLucky(String min, String max) {
+        BigInteger end = new BigInteger(max);
+        long count = 0;
+        for (BigInteger i = new BigInteger(min); i.compareTo(end) > 0; i = i.add(BigInteger.ONE)) {
+            if (isLucky(i.toString())) {
+                count++;
+            }
         }
-        return original;
+        return count;
     }
 }
