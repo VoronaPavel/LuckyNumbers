@@ -3,7 +3,7 @@ import java.util.stream.LongStream;
 
 import static java.lang.Integer.parseInt;
 
-public class LuckyTicketUnoptimized {
+public class LuckyTicket {
 
     public static boolean isLucky(String ticketNumber) {
         int length = ticketNumber.length();
@@ -22,7 +22,7 @@ public class LuckyTicketUnoptimized {
     }
 
     public static long countLucky(long min, long max) {
-        return LongStream.rangeClosed(min, max).filter(LuckyTicketUnoptimized::isLucky).count();
+        return LongStream.rangeClosed(min, max).filter(LuckyTicket::isLucky).count();
     }
 
     private static boolean isLucky(long ticketNumber) {

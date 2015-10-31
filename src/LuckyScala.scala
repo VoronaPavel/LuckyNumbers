@@ -1,4 +1,4 @@
-object LuckyScala extends LuckyTicket {
+object LuckyScala {
 
   def isLucky(number: String) = {
     val sumOfDigits = (number: String) => number map (_ asDigit) sum
@@ -6,8 +6,8 @@ object LuckyScala extends LuckyTicket {
     sumOfDigits(left) == sumOfDigits(right)
   }
 
-  def countLucky(min: String, max: String) =
+  def countLucky(min: String, max: String) : Long =
     Range.BigInt.inclusive(BigInt(min), BigInt(max), 1).count(e => isLucky(e toString))
 
-  def countLucky(min: Long, max: Long) = countLucky(min toString, max toString)
+  def countLucky(min: Long, max: Long) : Long = countLucky(min toString, max toString)
 }
