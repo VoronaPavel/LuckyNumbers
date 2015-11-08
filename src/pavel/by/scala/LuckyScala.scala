@@ -1,4 +1,4 @@
-package scala
+package pavel.by.scala
 
 object LuckyScala {
 

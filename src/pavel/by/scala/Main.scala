@@ -1,6 +1,6 @@
-package scala
+package pavel.by.scala
 
-import java.LuckyTicket
+import pavel.by.java.LuckyTicket
 
 object Main extends App {
   println(LuckyTicket.isLucky("123600"))
