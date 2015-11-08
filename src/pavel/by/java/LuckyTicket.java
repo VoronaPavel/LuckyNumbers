@@ -1,4 +1,4 @@
-package java;
+package pavel.by.java;
 
 import java.math.BigInteger;
 import java.util.stream.LongStream;
