@@ -1,3 +1,5 @@
+package scala
+
 object LuckyScala {
 
   def isLucky(number: String) : Boolean = {
